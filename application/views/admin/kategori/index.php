@@ -8,10 +8,12 @@
         $this->load->view('admin/header');
     ?>
         <div class="breadcrumbs">
-                    <!-- <div class="alert alert-success alert-dismissible col-lg-12">
+                <?php if($this->session->flashdata('msg_berhasil')){ ?> 
+                    <div class="alert alert-success alert-dismissible col-lg-12">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Success!</strong><br>
-                    </div> -->
+                        <strong>Success!</strong><br> <?php echo $this->session->flashdata('msg_berhasil');?>
+                    </div>
+                <?php } ?>
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
                     <div class="col-sm-4">
@@ -25,7 +27,7 @@
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="<?php echo site_url('Dashboard'); ?>">Home</a></li>
+                                    <li><a href="<?php echo site_url('PageAdmin'); ?>">Home</a></li>
                                     <li class="active">Kategori</li>
                                 </ol>
                             </div>
@@ -42,7 +44,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="#"><span class="badge badge-success"><i class=" fa fa-plus"></i></span></a>
+                                <a href="<?php echo site_url('KategoriAdmin/in_kat'); ?>"><span class="badge badge-success"><i class=" fa fa-plus"></i></span></a>
                                 <strong class="card-title">Kategori</strong>
                             </div>
                             <div class="card-body">
@@ -51,34 +53,31 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Kategori</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
+                                    <?php
+                                        if(count($kategori)>0):
+                                            $no=1; foreach ($kategori as $data):
+                                    ?>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>DSLR</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Digital</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Mirroles</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Pocket</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Action Cam</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Aksesoris</td>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $data->kategori; ?></td>
+                                            <td>
+                                            <a onclick="return confirm('Apakah akan diedit?')"
+                                             href="<?php echo site_url('KategoriAdmin/ed_kat') ?>"
+                                             class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                                            <a onclick="return confirm('Apakah akan dihapus?')"
+                                             href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     </tbody>
+                                    <?php
+                                            $no++; endforeach; ?>
+                                    <?php else: ?>
+                                        <td colspan="3" align="center"><strong>Data Kosong</strong></td>
+                                    <?php endif; ?>
                                 </table>
                             </div>
                         </div>

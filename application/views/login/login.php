@@ -2,14 +2,14 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Web Inventaris | Login</title>
+  <title>Login || CV. Welcome Camera</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?= base_url()?>/assets/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
+  <script src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="<?php echo base_url().'assets/js/bootstrap.min.js'?>"></script>
 
 
       <style>
@@ -17,7 +17,7 @@
       body {
   font-family: "Open Sans", sans-serif;
   height: 100vh;
-  background: url("https://i.imgur.com/HgflTDf.jpg") 50% fixed;
+  background: url("<?php echo base_url().'images/bg.jpg'?>") 50% fixed;
   background-size: cover;
 }
 
@@ -41,7 +41,7 @@
   width: 100%;
   min-height: 100%;
   padding: 20px;
-  background: rgba(4, 40, 68, 0.85);
+  background: rgba(20, 50, 60, 0.65);
 }
 
 .login {
@@ -159,20 +159,6 @@
   border-bottom-width: 4px;
 }
 
-footer {
-  display: block;
-  padding-top: 50px;
-  text-align: center;
-  color: #ddd;
-  font-weight: normal;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
-  font-size: 0.8em;
-}
-footer a, footer a:link {
-  color: #fff;
-  text-decoration: none;
-}
-
     </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -201,7 +187,7 @@ footer a, footer a:link {
     <?php }else {
       redirect(site_url());
     }?>
-    <?php echo anchor(site_url('login/register'),'Register') ?><br>
+    <?php echo anchor(site_url('Register'),'Register') ?><br>
     <!-- <a href="#">Forgot your password?</a> -->
     <button>
       <!-- <i class="spinner"></i> -->
@@ -211,7 +197,6 @@ footer a, footer a:link {
   <!-- <footer><a target="blank" href="http://unsadacoder.or.id">UnsadaCoder.or.id</a></footer> -->
   </p>
 </div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
 </body>

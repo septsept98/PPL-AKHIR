@@ -9,7 +9,7 @@
     ?>
         <div class="breadcrumbs">
                     <!-- <div class="alert alert-success alert-dismissible col-lg-12">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <a href="<?php echo site_url('Barang/detail_barang') ?>" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong>Success!</strong><br>
                     </div> -->
             <div class="breadcrumbs-inner">
@@ -42,7 +42,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="#"><span class="badge badge-success"><i class=" fa fa-plus"></i></span></a>
+                                <a href="<?php echo site_url('Barang/in_barang') ?>"><span class="badge badge-success"><i class=" fa fa-plus"></i></span></a>
                                 <strong class="card-title">Barang</strong>
                             </div>
                             <div class="card-body">
@@ -65,13 +65,14 @@
                                             <td>10 pcs</td>
                                             <td>35000000 /pcs</td>
                                             <td>
-                                            <a href="#"
+                                            <a href="<?php echo site_url('Barang/detail_barang') ?>"
                                              class="btn btn-outline-secondary btn-sm"><i class="fa fa-eye"></i></a>
                                             <a onclick="return confirm('Apakah akan diedit?')"
-                                             href="#"
+                                             href="<?php echo site_url('Barang/ed_barang') ?>"
                                              class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Apakah akan dihapus?')"
                                              href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </td>
                                         </tr>
                                         <tr>
@@ -81,13 +82,14 @@
                                             <td>20 pcs</td>
                                             <td>10000000 /pcs</td>
                                             <td>
-                                            <a href="#"
+                                            <a href="<?php echo site_url('Barang/detail_barang') ?>"
                                              class="btn btn-outline-secondary btn-sm"><i class="fa fa-eye"></i></a>
                                             <a onclick="return confirm('Apakah akan diedit?')"
-                                             href="#"
+                                             href="<?php echo site_url('Barang/ed_barang') ?>"
                                              class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Apakah akan dihapus?')"
                                              href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
@@ -96,13 +98,14 @@
                                             <td>10 pcs</td>
                                             <td>15000000 /pcs</td>
                                             <td>
-                                            <a href="#"
+                                            <a href="<?php echo site_url('Barang/detail_barang') ?>"
                                              class="btn btn-outline-secondary btn-sm"><i class="fa fa-eye"></i></a>
                                             <a onclick="return confirm('Apakah akan diedit?')"
-                                             href="#"
+                                             href="<?php echo site_url('Barang/ed_barang') ?>"
                                              class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Apakah akan dihapus?')"
                                              href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
@@ -111,13 +114,14 @@
                                             <td>30 pcs</td>
                                             <td>5000000 /pcs</td>
                                             <td>
-                                            <a href="#"
+                                            <a href="<?php echo site_url('Barang/detail_barang') ?>"
                                              class="btn btn-outline-secondary btn-sm"><i class="fa fa-eye"></i></a>
                                             <a onclick="return confirm('Apakah akan diedit?')"
-                                             href="#"
+                                             href="<?php echo site_url('Barang/ed_barang') ?>"
                                              class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Apakah akan dihapus?')"
                                              href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
@@ -126,13 +130,14 @@
                                             <td>45 pcs</td>
                                             <td>350000 /pcs</td>
                                             <td>
-                                            <a href="#"
+                                            <a href="<?php echo site_url('Barang/detail_barang') ?>"
                                              class="btn btn-outline-secondary btn-sm"><i class="fa fa-eye"></i></a>
                                             <a onclick="return confirm('Apakah akan diedit?')"
-                                             href="#"
+                                             href="<?php echo site_url('Barang/ed_barang') ?>"
                                              class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Apakah akan dihapus?')"
                                              href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
