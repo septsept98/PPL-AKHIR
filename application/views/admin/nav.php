@@ -19,7 +19,7 @@
                     <li class="<?=($hal=='Barang')?'active':'';?> menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Barang</a>
                         <ul class="sub-menu children dropdown-menu">                            
-                            <li><i class="fa fa-puzzle-piece"></i><a href="<?php echo site_url('BarangAdmin/in_barang'); ?>">Barang Masuk</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="<?php echo site_url('BarangAdmin/tambahbarangbaru'); ?>">Barang Baru</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="<?php echo site_url('BarangAdmin'); ?>">Stok Barang</a></li>
                         </ul>
                     </li>

@@ -8,10 +8,12 @@
         $this->load->view('admin/header');
     ?>
         <div class="breadcrumbs">
-                    <!-- <div class="alert alert-success alert-dismissible col-lg-12">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Success!</strong><br>
-                    </div> -->
+            <?php if($this->session->flashdata('msg_berhasil')){ ?>
+                <div class="alert alert-success alert-dismissible col-lg-12">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong><br> <?php echo $this->session->flashdata('msg_berhasil');?>
+                </div>
+            <?php } ?>
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
                     <div class="col-sm-4">
@@ -25,8 +27,8 @@
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="<?php echo site_url('Dashboard'); ?>">Home</a></li>
-                                    <li><a href="<?php echo site_url('Kategori'); ?>">Kategori</a></li>
+                                    <li><a href="<?php echo site_url('PageAdmin'); ?>">Home</a></li>
+                                    <li><a href="<?php echo site_url('KategoriAdmin'); ?>">Kategori</a></li>
                                     <li class="active">Tambah Kategori</li>
                                 </ol>
                             </div>
@@ -45,27 +47,27 @@
                             <div class="card-header">
                                 <strong class="card-title">Tambah</strong> Kategori
                             </div>
-                            <div class="card-body card-block">
-                                <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="<?php echo site_url('KategoriAdmin/in_kategori'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">                                
+                                <div class="card-body card-block">
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="nm_kategori" class=" form-control-label">Nama Kategori</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="nm_kategori" name="nm_kategori" placeholder="Kategori" class="form-control"></div>
+                                        <div class="col col-md-3"><label for="kategori" class=" form-control-label">Nama Kategori</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="kategori" name="kategori" placeholder="Kategori" class="form-control"></div>
                                     </div>  
-                                    <div class="row form-group ">
-                                        <div class="col col-md-3">
-                                            <a href="<?php echo site_url('Kategori'); ?>" class="btn btn-warning btn-sm"><i class="fa fa-angle-double-left"></i> Kembali</a>
-                                        </div>
-                                        <div class="col-12 col-md-9 text-right">
-                                            <button type="reset" class="btn btn-danger btn-sm">
-                                                <i class="fa fa-ban"></i> Batal
-                                            </button>
-                                            <button type="submit" class="btn btn-success btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i> Simpan
-                                            </button>
-                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col col-md-3">
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='<?php echo site_url('KategoriAdmin'); ?>'"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</button>
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="col-12 col-md-9 text-right">
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Batal
+                                        </button>
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            <i class="fa fa-save"></i> Simpan
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

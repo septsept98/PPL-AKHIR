@@ -69,7 +69,8 @@
                                             <td><?php echo $data->nama; ?></td>
                                             <td><?php echo $data->email; ?></td>
                                             <td><?php echo $data->username; ?></td>
-                                            <td style="display: block; width: 150px;overflow: hidden; white-space: nowrap;"><?php echo $data->password; ?></td>
+                                            <!-- <td style="display: block; width: 150px;overflow: hidden; white-space: nowrap;"><?php echo $data->password; ?></td> -->
+                                            <td>*******</td>
                                             <td>
                                             <a onclick="return confirm('Apakah akan diedit?')"
                                              href="<?php echo site_url('PelangganAdmin/editPelanggan/'.$data->id) ?>"

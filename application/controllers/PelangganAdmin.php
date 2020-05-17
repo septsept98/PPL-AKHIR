@@ -64,9 +64,10 @@ class PelangganAdmin extends CI_Controller {
 		}
 		
 		$where = array('id'=> $id);
-		$data['pelanggan'] = $this->MAdmin->Update('user', $data, $where);
+		$this->MAdmin->Update('user', $data, $where);
+
       	$this->session->set_flashdata('msg_berhasil','Data Pelanggan Berhasil Diupdate');
-		redirect('PelangganAdmin');
+        redirect(site_url('PelangganAdmin/editPelanggan/'.$id));
 	}
 
 	public function hapusPelanggan($id){

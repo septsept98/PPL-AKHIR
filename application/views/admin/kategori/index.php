@@ -8,7 +8,7 @@
         $this->load->view('admin/header');
     ?>
         <div class="breadcrumbs">
-                <?php if($this->session->flashdata('msg_berhasil')){ ?> 
+                <?php if($this->session->flashdata('msg_berhasil')){ ?>
                     <div class="alert alert-success alert-dismissible col-lg-12">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong>Success!</strong><br> <?php echo $this->session->flashdata('msg_berhasil');?>
@@ -44,7 +44,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="<?php echo site_url('KategoriAdmin/in_kat'); ?>"><span class="badge badge-success"><i class=" fa fa-plus"></i></span></a>
+                                <a href="<?php echo site_url('KategoriAdmin/tambahkat'); ?>"><span class="badge badge-success"><i class=" fa fa-plus"></i></span></a>
                                 <strong class="card-title">Kategori</strong>
                             </div>
                             <div class="card-body">
@@ -66,10 +66,10 @@
                                             <td><?php echo $data->kategori; ?></td>
                                             <td>
                                             <a onclick="return confirm('Apakah akan diedit?')"
-                                             href="<?php echo site_url('KategoriAdmin/ed_kat') ?>"
+                                             href="<?php echo site_url('KategoriAdmin/editkat/'.$data->id) ?>"
                                              class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Apakah akan dihapus?')"
-                                             href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                             href="<?php echo site_url('KategoriAdmin/hapuskat/'.$data->id) ?>" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

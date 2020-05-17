@@ -31,5 +31,13 @@ class MAdmin extends CI_Model{
                         ->get();
         return $res->result();
     }
+
+    public function GetKategori(){
+        $this->db->select ( '*','tb_barang.id as id_brg' ); 
+        $this->db->from ('tb_barang');
+        $this->db->join ('kategori', 'kategori.id = tb_barang.id_kategori' , 'left' );
+        $query = $this->db->get ();
+        return $query->result ();
+    }
 }
 ?>

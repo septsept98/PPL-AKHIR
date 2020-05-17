@@ -28,8 +28,8 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="<?php echo site_url('PageAdmin'); ?>">Home</a></li>
-                                    <li><a href="<?php echo site_url('KategoriAdmin'); ?>">Kategori</a></li>
-                                    <li class="active">Edit Kategori</li>
+                                    <li><a href="<?php echo site_url('BarangAdmin'); ?>">Barang</a></li>
+                                    <li class="active">Stok Barang</li>
                                 </ol>
                             </div>
                         </div>
@@ -45,33 +45,41 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Edit</strong> Kategori
+                                <strong class="card-title">Tambah</strong> Stok Barang
                             </div>
-                            <?php foreach ($kategori as $data):
-                            ?>
-                            <form action="<?php echo site_url('KategoriAdmin/up_kategori'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">       
+                            <form action="<?php echo site_url('BarangAdmin/in_stokbarang'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal"> 
                                 <div class="card-body card-block">
                                     <div class="row form-group">
-                                        <input type="hidden" id="id" name="id" class="form-control" value="<?php echo $data->id ?>">
-                                        <div class="col col-md-3"><label for="kategori" class=" form-control-label">Nama Kategori</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="kategori" name="kategori" class="form-control" value="<?php echo $data->kategori ?>"></div>
-                                    </div> 
-                                </div> 
+                                        <div class="col col-md-3"><label for="select" class=" form-control-label">Nama Barang</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="barang" id="barang" class="form-control">
+                                                <option value="0">Pilih barang</option>
+                                                <?php foreach ($barang as $data){
+                                                ?>
+                                                    <option value="<?php echo $data->id; ?>"><?php echo $data->nm_barang; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="jml-input" class=" form-control-label">Jumlah Barang</label></div>
+                                        <div class="col-12 col-md-9"><input type="number" id="jumlah_brg" name="jumlah_brg" min="1" placeholder="0" class="form-control"></div>
+                                    </div>
+                                </div>
                                 <div class="modal-footer">
                                     <div class="col col-md-3">
-                                        <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='<?php echo site_url('KategoriAdmin'); ?>'"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='<?php echo site_url('BarangAdmin'); ?>'"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</button>
                                     </div>
                                     <div class="col-12 col-md-9 text-right">
                                         <button type="reset" class="btn btn-danger btn-sm">
                                             <i class="fa fa-ban"></i> Batal
                                         </button>
-                                        <button type="submit" class="btn btn-success btn-sm">
-                                            <i class="fa fa-save"></i> Simpan
+                                        <button type="submit" onclick="return confirm('Yakin akan menambah stok barang?')" class="btn btn-success btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Simpan
                                         </button>
                                     </div>
                                 </div>
                             </form>
-                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

@@ -61,13 +61,21 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="judul-input" class=" form-control-label">Password </label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="password" name="password" placeholder="password" class="form-control" value="<?php echo $data->password ?> "required></div>
+                                        <div class="col-12 col-md-9"><input type="password" id="password" name="password" placeholder="password" class="form-control" value="<?php echo $data->password ?> "required></div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-sm" style="margin-right: 82%;" onclick="location.href='<?php echo site_url('PelangganAdmin'); ?>'"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</button>
-                                    
-                                    <button class="btn btn-success btn-sm" type="submit">Simpan <i class="fa fa-save"></i></button>
+                                    <div class="col col-md-3">
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='<?php echo site_url('PelangganAdmin'); ?>'"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</button>
+                                    </div>
+                                    <div class="col-12 col-md-9 text-right">
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Batal
+                                        </button>
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            <i class="fa fa-save"></i> Simpan
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                             <?php endforeach; ?>

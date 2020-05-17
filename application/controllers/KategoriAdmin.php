@@ -13,6 +13,7 @@ class KategoriAdmin extends CI_Controller {
 	    }
 		// load Session Library
 		$this->load->library('session');
+		$this->load->library('datatables');
 			
 		// load url helper
 		$this->load->helper('url');
@@ -26,11 +27,54 @@ class KategoriAdmin extends CI_Controller {
 		$this->load->view("admin/kategori/index.php", $data);
 	}
 
-	public function in_kat(){
+	public function tambahkat(){
 		$this->load->view("admin/kategori/in_kat.php");
 	}
 
-	public function ed_kat(){
-		$this->load->view("admin/kategori/ed_kat.php");
+	public function in_kategori(){
+      	$kategori = $this->input->post('kategori',TRUE);
+
+        $data = array(
+              'id'=> '',
+              'kategori' => $kategori
+        );
+
+        $this->MAdmin->Insert('kategori',$data);
+
+		$this->session->set_flashdata('msg_berhasil','Data Berhasil Ditambah');
+        redirect(site_url('KategoriAdmin/tambahkat'));
 	}
+
+	public function editkat($id){
+		$where = array('id'=> $id);
+		$data['kategori'] = $this->MAdmin->GetWhere('kategori',$where);
+		$this->load->view('admin/kategori/ed_kat.php', $data);
+	}
+
+	public function up_kategori(){
+      	$id = $this->input->post('id',TRUE);
+      	$kategori = $this->input->post('kategori',TRUE);
+
+        $data = array(
+              'kategori' => $kategori
+        );
+
+		$where = array('id'=> $id);
+        $this->MAdmin->Update('kategori',$data,$where);
+
+		$this->session->set_flashdata('msg_berhasil','Data Berhasil Diedit');
+        redirect(site_url('KategoriAdmin/editkat/'.$id));
+	}
+
+	public function hapuskat($id){
+		$where = array('id'=> $id);
+		$this->MAdmin->Delete('kategori',$where);
+		$this->session->set_flashdata('msg_berhasil','Data Berhasil Dihapus');
+        redirect(site_url('KategoriAdmin'));
+	}
+	
+	function get_produk_json() { //data data produk by JSON object
+    	header('Content-Type: application/json');
+    	echo $this->MAdmin->get_all_produk();
+  	}
 }
