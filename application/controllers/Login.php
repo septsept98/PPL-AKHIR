@@ -60,7 +60,7 @@ class Login extends CI_Controller{
 						);
 
 						$this->session->set_userdata($data_session);
-						redirect('Page');
+						redirect('barang');
 					}else {
 						$this->session->set_flashdata('msg','Username Dan Password Salah');
 						redirect('login');

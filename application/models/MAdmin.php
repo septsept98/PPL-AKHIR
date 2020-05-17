@@ -33,7 +33,7 @@ class MAdmin extends CI_Model{
     }
 
     public function GetKategori(){
-        $this->db->select ( '*','tb_barang.id as id_brg' ); 
+        $this->db->select ( 'tb_barang.*, kategori.id as id_kat, kategori.kategori' ); 
         $this->db->from ('tb_barang');
         $this->db->join ('kategori', 'kategori.id = tb_barang.id_kategori' , 'left' );
         $query = $this->db->get ();

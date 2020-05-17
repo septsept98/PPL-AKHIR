@@ -89,13 +89,13 @@
                                                     ?>
                                                 </td>
                                                 <td >
-                                                    <a href="<?= site_url('BarangAdmin/detailbarang/'.$data->id_brg)?>"
+                                                    <a href="<?= site_url('BarangAdmin/detailbarang/'.$data->id)?>"
                                                      class="btn btn-outline-secondary btn-sm"><i class="fa fa-eye"></i></a>
                                                     <a onclick="return confirm('Apakah <?php echo $data->nm_barang; ?> akan diedit?')"
-                                                     href="<?php echo site_url('BarangAdmin/editbarang/'.$data->id_brg); ?>"
+                                                     href="<?php echo site_url('BarangAdmin/editbarang/'.$data->id); ?>"
                                                      class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                                     <a onclick="return confirm('Apakah <?php echo $data->nm_barang; ?> akan dihapus?')"
-                                                     href="<?php echo site_url('BarangAdmin/hapusbarang/'.$data->id_brg); ?>" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                     href="<?php echo site_url('BarangAdmin/hapusbarang/'.$data->id); ?>" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                             <?php $no++; endforeach; ?>
