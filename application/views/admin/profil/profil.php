@@ -75,7 +75,7 @@
 									<tr>
 										<th>Password</th>
 										<td>
-											<?php echo $data->password; ?>
+											**************
 										</td>
 									</tr>
 									<tr>

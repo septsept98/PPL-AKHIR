@@ -98,16 +98,56 @@ class BarangAdmin extends CI_Controller {
         redirect(site_url('BarangAdmin/tambahstokbarang'));
 	}
 
-	public function editbarang()
+	public function editbarang($id)
 	{
-        // load view admin/overview.php
-        $this->load->view("admin/barang/ed_barang.php");
+		$where = array('id'=> $id);
+		$data['barang'] = $this->MAdmin->GetWhere('tb_barang', $where);
+		$data['kategori'] = $this->MAdmin->Get('kategori');
+        $this->load->view("admin/barang/ed_barang.php", $data);
 	}
 
-	public function detailbarang()
+	public function detailbarang($id)
 	{
-        // load view admin/overview.php
-        $this->load->view("admin/barang/detail_barang.php");
+		$data['barang_masuk'] = $this->MAdmin->GetBarangMasuk($id);
+		$data['barang'] = $this->MAdmin->GetKategoriWhere($id);
+        $this->load->view("admin/barang/detail_barang.php", $data);
+	}
+
+	public function up_gambar(){
+      	$id = $this->input->post('id',TRUE);
+
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".$_FILES["gambar"]["name"]);
+		$gambar = $_FILES["gambar"]["name"];
+
+		$where = array('id'=> $id);
+		$data = array('gambar'=> $gambar);
+		$this->MAdmin->Update('tb_barang', $data, $where);
+
+
+		$this->session->set_flashdata('msg_berhasil','Gambar Berhasil Diedit');
+        redirect(site_url('BarangAdmin/editbarang/'.$id));
+	}
+
+	public function up_barang(){
+      	$id = $this->input->post('id',TRUE);
+      	$nm_brg = $this->input->post('nm_barang',TRUE);
+      	$id_kategori = $this->input->post('id_kategori',TRUE);
+      	$jumlah = $this->input->post('jumlah',TRUE);
+      	$harga_brg = $this->input->post('harga_brg',TRUE);
+      	$ket_brg = $this->input->post('ket_brg',TRUE);
+
+		$where = array('id'=> $id);
+		$data = array('nm_barang'=> $nm_brg,
+						'id_kategori'=> $id_kategori,
+						'jumlah_barang'=> $jumlah,
+						'harga_barang'=> $harga_brg,
+						'ket_barang'=> $ket_brg
+					);
+
+		$this->MAdmin->Update('tb_barang', $data, $where);
+
+		$this->session->set_flashdata('msg_berhasil','Data Berhasil Diedit');
+        redirect(site_url('BarangAdmin/editbarang/'.$id));
 	}
 
 	public function hapusbarang($id)
@@ -116,6 +156,6 @@ class BarangAdmin extends CI_Controller {
 		$this->MAdmin->Delete('tb_barang',$where);
 
 		$this->session->set_flashdata('msg_berhasil','Data Berhasil Dihapus');
-        // redirect(site_url('BarangAdmin'));
+        redirect(site_url('BarangAdmin'));
 	}
 }

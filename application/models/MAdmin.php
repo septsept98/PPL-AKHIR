@@ -39,5 +39,23 @@ class MAdmin extends CI_Model{
         $query = $this->db->get ();
         return $query->result ();
     }
+
+    public function GetBarangMasuk($id){
+        $this->db->select ( 'tb_barang.*, barang_masuk.id as id_masuk, barang_masuk.tgl_masuk, barang_masuk.jumlah' ); 
+        $this->db->from ('barang_masuk');
+        $this->db->join ('tb_barang', 'tb_barang.id = barang_masuk.id_barang' , 'left' );
+        $this->db->where('tb_barang.id = '.$id);
+        $query = $this->db->get ();
+        return $query->result ();        
+    }
+
+    public function GetKategoriWhere($id){
+        $this->db->select ( 'tb_barang.*, kategori.id as id_kat, kategori.kategori' ); 
+        $this->db->from ('tb_barang');
+        $this->db->join ('kategori', 'kategori.id = tb_barang.id_kategori' , 'left' );
+        $this->db->where('tb_barang.id = '.$id);
+        $query = $this->db->get ();
+        return $query->result ();
+    }
 }
 ?>
