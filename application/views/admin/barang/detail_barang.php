@@ -67,6 +67,9 @@
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
+                                    <div class="col-md-12 mb-3">
+                                        <h4><b>Detail Stok Masuk</b></h4>
+                                    </div>
                                     <div class="table-responsive">
                                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                             <thead>
