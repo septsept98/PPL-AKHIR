@@ -54,7 +54,7 @@ class BarangAdmin extends CI_Controller {
 			'id' => '',
 			'nm_barang' => $nm_brg,
 			'id_kategori' => $kategori,
-			'jumlah_barang' => $jumlah_brg,
+			'jumlah_barang' => 0,
 			'harga_barang' => $harga_brg,
 			'ket_barang' => $ket_brg,
 			'gambar' => $gambar
