@@ -6,14 +6,31 @@ class Page extends CI_Controller{
     parent::__construct();
     //validasi jika user belum login
     if($this->session->userdata('masuk') == 'admin'){
-      redirect('Dashboard');
+      redirect('PageAdmin');
     }elseif ($this->session->userdata('masuk') != 'user') {
       $url=base_url();
       redirect($url);
     }
+
+    // load Session Library
+    $this->load->library('session');
+      
+    // load url helper
+    $this->load->helper('url');
+
+    $this->load->model('MAdmin');
+    $this->load->library('form_validation');
   }
  
   function index(){
-    $this->load->view('v_dashboard');
+    $data['kategori'] = $this->MAdmin->Get('kategori');
+    $this->load->view('front/index',$data);
+  }
+
+  function barang($id){
+    $where = array('id'=> $id);
+    $data['kat'] = $this->MAdmin->GetWhere('kategori',$where);
+    $data['barang'] = $this->MAdmin->GetWhereKategori($id);
+    $this->load->view('front/barang',$data);
   }
 }

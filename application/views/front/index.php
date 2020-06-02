@@ -31,30 +31,21 @@
 </div> -->
 <div class="inner">
     <div class="row">
-    <?php foreach ($kat as $kategori): ?>
-      <h4 class="col-12 mb-4 mt-4"> <center>Informasi <?php echo $kategori->kategori; ?> </center> </h4>
-    <?php endforeach; ?>
-        <?php foreach ($barang as $brg): ?>
+      <h4 class="col-12 mb-4 mt-4"> <center>Informasi Barang</center> </h4>
+        <?php foreach ($kategori as $kat): ?>
         <div class="col-3 mb-4"> 
           <div class="card">
             <div class="card-body">
-              <img class="card-img-top" src="<?php echo base_url('images/barang/'.$brg->gambar)?>" alt="">
+              <a href="<?= site_url('Page/barang/'.$kat->id)?>" title="<?= $kat->kategori ?>">
+                <img class="card-img-top" src="<?php echo base_url('assets/frontend/images/'.$kat->img_kat)?>" alt="">
+              </a>
               <h4 class="card-title text-center">
-                <a href="" class="text-dark"><?= $brg->nm_barang ?></a>
+                <a href="<?= site_url('Page/barang/'.$kat->id)?>" class="text-dark"><?= $kat->kategori ?></a>
               </h4>
-              <h6 class="card-subtitle mb-2 text-muted"><?= "Rp. ".number_format($brg->harga_barang,2,',','.'); ?></h6>
-              <h6 class="card-subtitle mb-2 text-muted">Stok : <?= $brg->jumlah_barang ?></h6>
-              <div class="card-text">
-                <?= $brg->ket_barang ?>
-              </div>
-              <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
             </div>
           </div>
         </div>
         <?php endforeach; ?>
-        <div class="col-12 mb-4">
-            <a href="<?= site_url('Page');?>" class="btn btn-warning">Kembali</a>
-        </div>
     </div>
 </div>
 
