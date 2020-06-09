@@ -9,7 +9,7 @@ class Page extends CI_Controller{
       redirect('PageAdmin');
     }elseif ($this->session->userdata('masuk') != 'user') {
       $url=base_url();
-      redirect($url);
+      redirect('login');
     }
 
     // load Session Library

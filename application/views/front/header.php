@@ -25,9 +25,16 @@
 						<div class="col-8">
 							<a href="<?= site_url('Pagr');?>"><img src="<?= base_url(); ?>assets/frontend/images/logo.png" width="100px"></img></a>
 						</div>
+						<?php if(is_null($this->session->userdata('masuk'))){  ?>
+
+						<div class="col-4 link text-right">
+							<a href="<?= base_url('Login'); ?>" title="logout"><i class="fa fa-power -off"></i>Login</a>
+						</div>
+						<?php }else{ ?>
 						<div class="col-4 link text-right">
 							<a href="<?= base_url('Login/logout'); ?>" title="logout"><i class="fa fa-power -off"></i>Logout</a>
 						</div>
+						<?php } ?>
 				</div>
 			</div>
 			</header>

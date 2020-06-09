@@ -7,20 +7,13 @@ class barang extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('barang_m', 'jb');
+    	$this->load->model('MAdmin');
 	}
 	
 	public function index()
 	{
-		$query = $this->jb->get();
-		// $data ['title'] = 'Tampil Mahasiswa'; (bisa seperti ini)
-		// $data['mhs'] = $query->result(); (diganti mhs karena nama mhs_m diatas telah diganti mhs)
-		$data = array(
-				'title' => 'Data barang',
-				'isi' => $query->result(),
-			);
-		$this->load->view('front/barang', $data);
-		
-
+	    $data['kategori'] = $this->MAdmin->Get('kategori');
+	    $this->load->view('front/index',$data);
 	}
 
 	public function add()

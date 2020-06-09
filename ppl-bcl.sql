@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2020 at 05:31 PM
+-- Generation Time: Jun 02, 2020 at 02:18 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -64,10 +64,15 @@ CREATE TABLE `barang_masuk` (
 --
 
 INSERT INTO `barang_masuk` (`id`, `id_barang`, `tgl_masuk`, `jumlah`) VALUES
-(1, 5, '2020-05-16 07:19:03', 15),
-(2, 6, '2020-05-16 08:52:25', 15),
-(3, 5, '2020-05-16 09:44:05', 5),
-(4, 6, '2020-05-16 09:44:47', 10);
+(6, 6, '2020-05-19 09:20:17', 5),
+(7, 7, '2020-05-19 09:21:01', 10),
+(8, 8, '2020-05-19 09:22:16', 5),
+(9, 9, '2020-05-19 09:24:45', 5),
+(10, 10, '2020-05-19 09:25:46', 10),
+(11, 11, '2020-05-19 09:26:41', 5),
+(12, 12, '2020-05-19 09:33:08', 20),
+(13, 13, '2020-05-19 09:34:23', 10),
+(14, 14, '2020-06-02 10:03:51', 10);
 
 --
 -- Triggers `barang_masuk`
@@ -90,18 +95,20 @@ DELIMITER ;
 
 CREATE TABLE `kategori` (
   `id` int(11) NOT NULL,
-  `kategori` varchar(100) NOT NULL
+  `kategori` varchar(100) NOT NULL,
+  `img_kat` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id`, `kategori`) VALUES
-(1, 'DSLR'),
-(2, 'Drone'),
-(3, 'Miroless'),
-(6, 'Monopod');
+INSERT INTO `kategori` (`id`, `kategori`, `img_kat`) VALUES
+(2, 'Drone', 'drone.png'),
+(3, 'Mirrorless', 'mirrorles.png'),
+(7, 'DSLR', 'slr.png'),
+(8, 'Aksesoris', 'aksesoris.png'),
+(9, 'Lensa', 'lensa.png');
 
 -- --------------------------------------------------------
 
@@ -124,8 +131,15 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id`, `id_kategori`, `nm_barang`, `jumlah_barang`, `harga_barang`, `ket_barang`, `gambar`) VALUES
-(5, 1, 'Canon Eos 7D', 20, 35000000, '<p>Baru</p>\r\n', 'business-plan-illustration-png-favpng-kdPBNpc3uKhBCNbLGJC1ucwiT.jpg'),
-(6, 3, 'Canon M10', 25, 3500000, '<p>New</p>\r\n', '6645894_preview.jpg');
+(6, 2, 'Drone Gore 3', 5, 1000000, '<p>Baru</p>\r\n', 'Drone.png'),
+(7, 3, 'Canon M10', 10, 5500000, '<p>Baru</p>\r\n', 'M10.jpg'),
+(8, 3, 'Fujifilm XA3', 5, 3800000, '<p>Dengan Lensa Fix</p>\r\n', 'fujifilm-xa3.jpg'),
+(9, 7, 'Canon Eos 7D', 5, 4500000, '<p>Body Only</p>\r\n', 'Eos7D.jpg'),
+(10, 7, 'Nikon D3200', 10, 2600000, '<p>dengan Lensa 18-100mm</p>\r\n', 'Nikon-D3200.jpg'),
+(11, 3, 'Nikon Coolpix P900', 5, 6900000, '<p>Baru</p>\r\n', 'COOLPIX.jpg'),
+(12, 8, 'Takara eco', 20, 500000, '<p>Gratis HP Holder</p>\r\n', 'Tripod.jpeg'),
+(13, 9, 'Canon 18-500mm', 10, 3500000, '<p>Baru</p>\r\n', 'Tamron.jpg'),
+(14, 8, 'Tripod', 10, 900000, '<p>baru</p>\r\n', 'Tripod.jpeg');
 
 --
 -- Triggers `tb_barang`
@@ -159,7 +173,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `username`, `email`, `password`) VALUES
 (1, 'Fiqih', 'Fiqih76  ', 'Fiqih@gmail.com', '$2y$10$kXYDgdKa59qWdP0.7Yfs7e1NVNTBaaymvk2/UDGIRuBvroQ7WQNWi'),
-(2, 'Septian', 'Septsept', 'Septianardi053@gmail.com', '$2y$10$V/F6MbyzuRmAEztnzJ/9yu349bFsAYjPq2CiqcmanCmXV1mMPX0Hu');
+(2, 'Septian', 'Septsept', 'Septianardi053@gmail.com', '$2y$10$V/F6MbyzuRmAEztnzJ/9yu349bFsAYjPq2CiqcmanCmXV1mMPX0Hu'),
+(3, 'Rama', 'Rama', 'Ralp@gmail.com', '$2y$10$a14yqW5bchGzRbVvo.5GDesAhIW76JGaxUyoG0rRz/wxlOepofYTy');
 
 --
 -- Indexes for dumped tables
@@ -211,41 +226,25 @@ ALTER TABLE `bag_gudang`
 -- AUTO_INCREMENT for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `barang_masuk`
---
-ALTER TABLE `barang_masuk`
-  ADD CONSTRAINT `barang_masuk_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `tb_barang` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `tb_barang`
---
-ALTER TABLE `tb_barang`
-  ADD CONSTRAINT `tb_barang_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
