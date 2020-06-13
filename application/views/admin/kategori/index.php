@@ -52,6 +52,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Gambar</th>
                                             <th>Kategori</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -62,7 +63,8 @@
                                     ?>
                                     <tbody>
                                         <tr>
-                                            <td><?php echo $no; ?></td>
+                                            <td align="center"><?php echo $no; ?></td>
+                                            <td><img class="card-img-top" src="<?php echo base_url('assets/frontend/images/'.$data->img_kat)?>" style="width: 50px;"></td>
                                             <td><?php echo $data->kategori; ?></td>
                                             <td>
                                             <a onclick="return confirm('Apakah akan diedit?')"

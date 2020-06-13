@@ -34,8 +34,12 @@ class KategoriAdmin extends CI_Controller {
 	public function in_kategori(){
       	$kategori = $this->input->post('kategori',TRUE);
 
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "assets/frontend/images/".$_FILES["gambar"]["name"]);
+		$gambar = $_FILES["gambar"]["name"];
+
         $data = array(
               'id'=> '',
+              'img_kat'=> $gambar,
               'kategori' => $kategori
         );
 
@@ -49,6 +53,21 @@ class KategoriAdmin extends CI_Controller {
 		$where = array('id'=> $id);
 		$data['kategori'] = $this->MAdmin->GetWhere('kategori',$where);
 		$this->load->view('admin/kategori/ed_kat.php', $data);
+	}
+
+	public function up_gambar(){
+      	$id = $this->input->post('id',TRUE);
+
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".$_FILES["gambar"]["name"]);
+		$gambar = $_FILES["gambar"]["name"];
+
+		$where = array('id'=> $id);
+		$data = array('img_kat'=> $gambar);
+		$this->MAdmin->Update('kategori', $data, $where);
+
+
+		$this->session->set_flashdata('msg_berhasil','Gambar Berhasil Diedit');
+        redirect(site_url('KategoriAdmin/editkat/'.$id));
 	}
 
 	public function up_kategori(){

@@ -45,6 +45,7 @@ class MAdmin extends CI_Model{
         $this->db->from ('tb_barang');
         $this->db->join ('kategori', 'kategori.id = tb_barang.id_kategori' , 'left' );
         $this->db->where('kategori.id = '.$id);
+        $this->db->order_by('tb_barang.nm_barang', 'asc');
         $query = $this->db->get ();
         return $query->result ();
     }
@@ -65,6 +66,13 @@ class MAdmin extends CI_Model{
         $this->db->where('tb_barang.id = '.$id);
         $query = $this->db->get ();
         return $query->result ();
+    }
+
+    public function GetOrder($table,$kolom,$order){
+        $this->db->from($table);
+        $this->db->order_by($kolom, $order);
+        $res = $this->db->get();
+        return $res->result();
     }
 }
 ?>

@@ -7,13 +7,6 @@
 							<p>Cek Ketersediaan Barang di tempat kami</p>
 						</section>
 						<section>
-							<h4>Data</h4>
-							<ul class="alt">
-								<li><a href="<?= base_url('barang'); ?>">1. barang </a></li>
-								<li><a href="<?= base_url('stok'); ?>">2. stok</a></li>
-							</ul>
-						</section>
-						<section>
 							<h4>SOSIAL MEDIA</h4>
 							<ul class="plain">
 								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>

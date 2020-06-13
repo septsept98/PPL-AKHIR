@@ -49,6 +49,28 @@
                             </div>
                             <?php foreach ($kategori as $data):
                             ?>
+                            <form action="<?php echo site_url('KategoriAdmin/up_gambar'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <input type="hidden" name="id" value="<?= $data->id ?>">
+                                <div class="card-body card-block">
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                           <img class="card-img-top" src="<?php echo base_url('assets/frontend/images/'.$data->img_kat)?>" alt="Card image cap">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="col-md-3"><label for="gambar-input" class=" form-control-label">Ganti Gambar</label></div>
+                                            <div class="col-md-9"><input type="file" id="gambar" name="gambar" class="form-control-gambar" required></div>
+                                            <div class="col-md-9 mt-2">
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Batal
+                                                </button>
+                                                <button type="submit" class="btn btn-success btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Upload
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                             <form action="<?php echo site_url('KategoriAdmin/up_kategori'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">       
                                 <div class="card-body card-block">
                                     <div class="row form-group">

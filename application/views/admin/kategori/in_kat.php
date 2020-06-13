@@ -50,6 +50,10 @@
                             <form action="<?php echo site_url('KategoriAdmin/in_kategori'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">                                
                                 <div class="card-body card-block">
                                     <div class="row form-group">
+                                        <div class="col col-md-3"><label for="gambar-input" class=" form-control-label">Gambar</label></div>
+                                        <div class="col-12 col-md-9"><input type="file" id="gambar" name="gambar" class="form-control-gambar"></div>
+                                    </div>
+                                    <div class="row form-group">
                                         <div class="col col-md-3"><label for="kategori" class=" form-control-label">Nama Kategori</label></div>
                                         <div class="col-12 col-md-9"><input type="text" id="kategori" name="kategori" placeholder="Kategori" class="form-control"></div>
                                     </div>  

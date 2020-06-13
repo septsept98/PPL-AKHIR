@@ -23,7 +23,7 @@ class Page extends CI_Controller{
   }
  
   function index(){
-    $data['kategori'] = $this->MAdmin->Get('kategori');
+    $data['kategori'] = $this->MAdmin->GetOrder('kategori','kategori','asc');
     $this->load->view('front/index',$data);
   }
 
@@ -32,5 +32,11 @@ class Page extends CI_Controller{
     $data['kat'] = $this->MAdmin->GetWhere('kategori',$where);
     $data['barang'] = $this->MAdmin->GetWhereKategori($id);
     $this->load->view('front/barang',$data);
+  }
+
+  function detail($id){
+    $where = array('id' => $id);
+    $data['barang'] = $this->MAdmin->GetKategoriWhere($id);
+    $this->load->view('front/detail_digital', $data);
   }
 }
