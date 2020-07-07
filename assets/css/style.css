@@ -2503,4 +2503,10 @@ footer.site-footer {
     left: inherit !important;
     right: 20px !important; }
 
+@media screen and (min-width: 700px){
+  .large{
+    width: 900px !important; 
+    height: 500px !important;
+  }
+}
 /*# sourceMappingURL=style.css.map */

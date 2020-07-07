@@ -84,7 +84,7 @@
                                 <div class="col-lg-12">
                                     <div class="card-body">
                                         <!-- <div id="myfirstchart" style="height: 250px;"></div> -->
-                                        <div id="piechart" style="width: 900px; height: 500px;"></div>
+                                        <div id="piechart" class="large"></div>
                                     </div>
                                 </div>
                             </div> <!-- /.row -->
