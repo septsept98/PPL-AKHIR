@@ -18,9 +18,10 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css"> -->
     
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
    <style>
     #weatherWidget .currentDesc {

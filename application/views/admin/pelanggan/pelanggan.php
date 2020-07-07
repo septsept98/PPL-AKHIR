@@ -49,7 +49,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                <table id="dataTable" class="table table-hover" width="100%" cellspacing="0">
+                                <table id="table_id" class="table table-hover" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -69,7 +69,6 @@
                                             <td><?php echo $data->nama; ?></td>
                                             <td><?php echo $data->email; ?></td>
                                             <td><?php echo $data->username; ?></td>
-                                            <!-- <td style="display: block; width: 150px;overflow: hidden; white-space: nowrap;"><?php echo $data->password; ?></td> -->
                                             <td>*******</td>
                                             <td>
                                             <a onclick="return confirm('Apakah akan diedit?')"

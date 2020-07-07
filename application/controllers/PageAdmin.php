@@ -23,8 +23,11 @@ class PageAdmin extends CI_Controller {
 
 	public function index()
 	{
-        // load view admin/overview.php
-        $this->load->view("admin/index.php");
+		$data['sum_kategori'] = $this->db->count_all_results('kategori');
+		$data['sum_user'] = $this->db->count_all_results('user');
+		$data['sum_barang'] = $this->MAdmin->Sum('tb_barang', 'jumlah_barang');
+ 		$data['graph'] = $this->MAdmin->graph();
+        $this->load->view("admin/index.php", $data);
 	}
 
 	// Profil

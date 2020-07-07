@@ -21,33 +21,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/init/fullcalendar-init.js"></script>
 
-    <script type="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script>
-    <script type="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.js"></script>
-    
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#bootstrap-data-table').DataTable({ 
-         
-                "processing": true, //Feature control the processing indicator.
-                "serverSide": true, //Feature control DataTables' server-side processing mode.
-                "order": [], //Initial no order.
-         
-                // Load data for the table's content from an Ajax source
-                "ajax": {
-                    "url": "<?php echo site_url('/ajax_list')?>",
-                    "type": "POST"
-                },
-         
-                //Set column definition initialisation properties.
-                "columnDefs": [
-                { 
-                    "targets": [ 0 ], //first column / numbering column
-                    "orderable": false, //set not orderable
-                },
-                ],
-         
+        jQuery(document).ready( function ($) {
+            $('#table_id').DataTable({
+                "paging":   true,
+                "ordering": true,
+                "info":     true
             });
         } );
     </script>

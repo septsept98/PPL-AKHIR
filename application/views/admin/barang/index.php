@@ -49,16 +49,17 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-hover" id="table_id" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
                                                 <th>Kategori</th>
                                                 <th>Nama Barang</th>
+                                                <th>Gambar</th>
                                                 <th>Jumlah</th>
                                                 <th>Harga</th>
                                                 <th>Ket Barang</th>
-                                                <th>Action</th>
+                                                <th width="100px">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,6 +75,7 @@
                                                 <td>
                                                     <?php echo $data->nm_barang; ?></a>
                                                 </td>
+                                                <td><img class="card-img-top" src="<?php echo base_url('images/barang/'.$data->gambar)?>" style="width: 50px;"></td>
                                                 <td>
                                                     <?php echo $data->jumlah_barang; ?>
                                                 </td>

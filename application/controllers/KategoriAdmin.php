@@ -24,6 +24,7 @@ class KategoriAdmin extends CI_Controller {
 
 	public function index(){
 		$data['kategori'] = $this->MAdmin->Get('kategori');
+		// $data['kategori'] = $this->MAdmin->json('kategori');
 		$this->load->view("admin/kategori/index.php", $data);
 	}
 
@@ -34,8 +35,8 @@ class KategoriAdmin extends CI_Controller {
 	public function in_kategori(){
       	$kategori = $this->input->post('kategori',TRUE);
 
-		move_uploaded_file($_FILES["gambar"]["tmp_name"], "assets/frontend/images/".$_FILES["gambar"]["name"]);
-		$gambar = $_FILES["gambar"]["name"];
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "assets/frontend/images/".time().$_FILES["gambar"]["name"]);
+		$gambar = time().$_FILES["gambar"]["name"];
 
         $data = array(
               'id'=> '',
@@ -58,10 +59,14 @@ class KategoriAdmin extends CI_Controller {
 	public function up_gambar(){
       	$id = $this->input->post('id',TRUE);
 
-		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".$_FILES["gambar"]["name"]);
-		$gambar = $_FILES["gambar"]["name"];
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "assets/frontend/images/".time().$_FILES["gambar"]["name"]);
+		$gambar = time().$_FILES["gambar"]["name"];
 
 		$where = array('id'=> $id);
+		$row = $this->db->get_where('kategori',$where)->row();
+		if($row->img_kat != null){
+			unlink(FCPATH."assets/frontend/images/".$row->img_kat);
+		}
 		$data = array('img_kat'=> $gambar);
 		$this->MAdmin->Update('kategori', $data, $where);
 
@@ -87,6 +92,10 @@ class KategoriAdmin extends CI_Controller {
 
 	public function hapuskat($id){
 		$where = array('id'=> $id);
+		$row = $this->db->get_where('kategori',$where)->row();
+		if($row->img_kat != null){
+			unlink(FCPATH."assets/frontend/images/".$row->img_kat);
+		}
 		$this->MAdmin->Delete('kategori',$where);
 		$this->session->set_flashdata('msg_berhasil','Data Berhasil Dihapus');
         redirect(site_url('KategoriAdmin'));

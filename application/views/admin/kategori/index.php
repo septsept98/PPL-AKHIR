@@ -48,7 +48,8 @@
                                 <strong class="card-title">Kategori</strong>
                             </div>
                             <div class="card-body">
-                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                <div class="table-responsive">
+                                <table id="table_id" class="table table-hover" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -81,6 +82,7 @@
                                         <td colspan="3" align="center"><strong>Data Kosong</strong></td>
                                     <?php endif; ?>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>

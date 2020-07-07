@@ -39,4 +39,59 @@ class Page extends CI_Controller{
     $data['barang'] = $this->MAdmin->GetKategoriWhere($id);
     $this->load->view('front/detail_digital', $data);
   }
+
+  function profil(){
+    $id = $this->session->userdata('id');
+    $where = array('id'=> $id);
+    $data['profil'] = $this->MAdmin->GetWhere('user',$where);
+    $this->load->view('front/profil', $data);
+  }
+
+  function editProfil($id){
+    $where = array('id'=> $id);
+    $data['profil'] = $this->MAdmin->GetWhere('user',$where);
+    $this->load->view('front/editProfil', $data);
+  }
+
+  public function up_profil(){
+    $id = $_POST['id'];
+    $nm = $_POST['nama'];
+    $user = $_POST['username'];
+    $email = $_POST['email'];
+    
+    $data = array(
+      'nama' => $nm,
+      'username' => $user,
+      'email' => $email,
+    );
+
+    $where = array('id'=> $id);
+    $this->session->set_userdata($data);
+    $data['profil'] = $this->MAdmin->Update('user', $data, $where);
+    redirect('Page/profil');
+  }
+
+  function editpw($id){
+    $where = array('id'=> $id);
+    $data['profil'] = $this->MAdmin->GetWhere('user',$where);
+    $this->load->view('front/editPW', $data);
+  }
+  
+  private function hash_password($password){
+    return password_hash($password,PASSWORD_DEFAULT);
+  }
+
+  public function up_pw(){
+    $id = $_POST['id'];
+    $password = $_POST['password'];
+    
+    $data = array(
+      'password' => $this->hash_password($password)
+    );
+
+    $where = array('id'=> $id);
+    $this->session->set_userdata($data);
+    $data['profil'] = $this->MAdmin->Update('user', $data, $where);
+    redirect('Page/profil');
+  }
 }

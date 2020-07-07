@@ -1,5 +1,10 @@
 <?php
 class MAdmin extends CI_Model{
+    function __construct(){
+        parent::__construct();
+        $this->load->library('datatables');
+    }
+    
     public function Get($table)
     {
         $res = $this->db->get($table);
@@ -36,6 +41,7 @@ class MAdmin extends CI_Model{
         $this->db->select ( 'tb_barang.*, kategori.id as id_kat, kategori.kategori' ); 
         $this->db->from ('tb_barang');
         $this->db->join ('kategori', 'kategori.id = tb_barang.id_kategori' , 'left' );
+        $this->db->order_by('tb_barang.nm_barang', 'asc');
         $query = $this->db->get ();
         return $query->result ();
     }
@@ -73,6 +79,21 @@ class MAdmin extends CI_Model{
         $this->db->order_by($kolom, $order);
         $res = $this->db->get();
         return $res->result();
+    }
+
+    function json($table){
+        $this->datatables->select('*');
+        $this->datatables->from($table);
+        return print_r($this->datatables->generate());
+    }
+
+    public function graph(){
+        $this->db->select ('kategori.kategori, (SELECT SUM(tb_barang.jumlah_barang) WHERE tb_barang.id_kategori = kategori.id) as jumlah'); 
+        $this->db->from ('kategori');
+        $this->db->join ('tb_barang', 'tb_barang.id_kategori = kategori.id','LEFT');
+        $this->db->group_by('kategori.kategori');
+        $query = $this->db->get ();
+        return $query->result ();
     }
 }
 ?>

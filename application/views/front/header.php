@@ -13,7 +13,7 @@
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/frontend/css/main.css" />
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/frontend/css/style.css" />
-		<link href="<?= base_url(); ?>assets/frontend/css/bootstrap.css" rel="stylesheet">
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"> -->
 	</head>
 	<body class="is-preload">
@@ -23,7 +23,7 @@
 				<div class="container">
 				<div class="row">
 						<div class="col-6">
-							<a href="<?= site_url('Pagr');?>"><img src="<?= base_url(); ?>assets/frontend/images/logo.png" width="100px"></img></a>
+							<a href="<?= site_url('Page');?>"><img src="<?= base_url(); ?>assets/frontend/images/logo.png" width="100px"></img></a>
 						</div>
 						<?php if(is_null($this->session->userdata('masuk'))){  ?>
 
@@ -33,7 +33,8 @@
 						</div>
 						<?php }else{ ?>
 						<div class="col-6 link text-right">
-							<a href="<?= base_url('Login/logout'); ?>" title="logout"><i class="fa fa-power -off"></i>Logout</a>
+							<a href="<?= base_url('Page/profil'); ?>" title="profil"><i class="fa fa-power -off"></i>Profil</a>
+							<a onclick="return confirm('Apakah akan logout?')" href="<?= base_url('Login/logout'); ?>" title="logout"><i class="fa fa-power -off"></i>Logout</a>
 						</div>
 						<?php } ?>
 				</div>

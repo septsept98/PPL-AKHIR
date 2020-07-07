@@ -46,8 +46,8 @@ class BarangAdmin extends CI_Controller {
       	$harga_brg = $this->input->post('harga_brg',TRUE);
       	$ket_brg = $this->input->post('ket_brg',TRUE);
 
-		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".$_FILES["gambar"]["name"]);
-		$gambar = $_FILES["gambar"]["name"];
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".time().$_FILES["gambar"]["name"]);
+		$gambar = time().$_FILES["gambar"]["name"];
 
 
 		$data = array(
@@ -116,10 +116,14 @@ class BarangAdmin extends CI_Controller {
 	public function up_gambar(){
       	$id = $this->input->post('id',TRUE);
 
-		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".$_FILES["gambar"]["name"]);
-		$gambar = $_FILES["gambar"]["name"];
+		move_uploaded_file($_FILES["gambar"]["tmp_name"], "images/barang/".time().$_FILES["gambar"]["name"]);
+		$gambar = time().$_FILES["gambar"]["name"];
 
 		$where = array('id'=> $id);
+		$row = $this->db->get_where('tb_barang',$where)->row();
+		if($row->gambar != null){
+			unlink(FCPATH."images/barang/".$row->gambar);
+		}
 		$data = array('gambar'=> $gambar);
 		$this->MAdmin->Update('tb_barang', $data, $where);
 
@@ -153,6 +157,10 @@ class BarangAdmin extends CI_Controller {
 	public function hapusbarang($id)
 	{
 		$where = array('id'=> $id);
+		$row = $this->db->get_where('tb_barang',$where)->row();
+		if($row->gambar != null){
+			unlink(FCPATH."images/barang/".$row->gambar);
+		}
 		$this->MAdmin->Delete('tb_barang',$where);
 
 		$this->session->set_flashdata('msg_berhasil','Data Berhasil Dihapus');
