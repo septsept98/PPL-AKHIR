@@ -11,6 +11,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+    	<link rel="manifest" href="<?php echo base_url(); ?>manifest.json">
+    	<script>
+		    if ('serviceWorker' in navigator ) {
+		        window.addEventListener('load', function() {
+		            navigator.serviceWorker.register('sw.js').then(function(registration) {
+		                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+		            }, function(err) {
+		                console.log('ServiceWorker registration failed: ', err);
+		            });
+		        });
+		    }
+		</script>
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/frontend/css/main.css" />
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/frontend/css/style.css" />
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">

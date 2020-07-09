@@ -12,7 +12,7 @@ class barang extends CI_Controller {
 	
 	public function index()
 	{
-	    $data['kategori'] = $this->MAdmin->Get('kategori');
+    	$data['kategori'] = $this->MAdmin->GetOrder('kategori','kategori','asc');
 	    $this->load->view('front/index',$data);
 	}
 

@@ -23,7 +23,7 @@ class KategoriAdmin extends CI_Controller {
 	}
 
 	public function index(){
-		$data['kategori'] = $this->MAdmin->Get('kategori');
+    	$data['kategori'] = $this->MAdmin->GetOrder('kategori','kategori','asc');
 		// $data['kategori'] = $this->MAdmin->json('kategori');
 		$this->load->view("admin/kategori/index.php", $data);
 	}

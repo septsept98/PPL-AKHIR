@@ -25,8 +25,8 @@
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="<?php echo site_url('Dashboard'); ?>">Home</a></li>
-                                    <li><a href="<?php echo site_url('Barang'); ?>">Barang</a></li>
+                                    <li><a href="<?php echo site_url('PageAdmin'); ?>">Home</a></li>
+                                    <li><a href="<?php echo site_url('BarangAdmin'); ?>">Barang</a></li>
                                     <li class="active">Detail Barang</li>
                                 </ol>
                             </div>

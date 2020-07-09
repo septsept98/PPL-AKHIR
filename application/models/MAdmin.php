@@ -95,5 +95,13 @@ class MAdmin extends CI_Model{
         $query = $this->db->get ();
         return $query->result ();
     }
+
+    public function GetKeluar(){
+        $this->db->select ('*'); 
+        $this->db->from ('barang_keluar');
+        $this->db->join ('tb_barang', 'tb_barang.id = barang_keluar.id_barang' , 'left' );
+        $query = $this->db->get ();
+        return $query->result ();
+    }
 }
 ?>

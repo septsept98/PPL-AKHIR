@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+    <link rel="manifest" href="<?php echo base_url(); ?>manifest.json">
 
     <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css"> -->
